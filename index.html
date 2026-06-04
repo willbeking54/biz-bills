@@ -358,14 +358,41 @@ table .tag-partial{background:var(--info-bg);color:var(--info)}
 (function(){
 'use strict';
 
-// ===== 纯本地存储模式 =====
+// ===== 数据层：Cloudflare KV 同步 + localStorage 备用 =====
 const STORAGE_KEY = 'biz_records_v3';
 const VERSION_KEY = 'biz_records_ver';
 const DATA_VERSION = 3;
 let records = [];
 let deleteTargetId = null;
+// 检测是否在 Cloudflare Pages 上运行（有 API 可用）
+const API_URL = '/api/records';
+let apiAvailable = false;
 
-function loadRecords(){
+async function apiCall(method, body, id) {
+    let url = API_URL;
+    if (id) url += '/' + encodeURIComponent(id);
+    const opts = { method, headers: { 'Content-Type': 'application/json' } };
+    if (body) opts.body = JSON.stringify(body);
+    const res = await fetch(url, opts);
+    if (!res.ok) throw new Error('API error: ' + res.status);
+    return res.json();
+}
+
+async function loadRecords(){
+    // 尝试从 Cloudflare KV 加载
+    try {
+        const data = await apiCall('GET');
+        records = data;
+        apiAvailable = true;
+        // 同步到本地备份
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(records));
+        localStorage.setItem(VERSION_KEY, DATA_VERSION);
+        console.log('☁️ 从云端加载 ' + records.length + ' 条记录');
+        return;
+    } catch(e) {
+        apiAvailable = false;
+    }
+    // 本地模式
     const storedVer = parseInt(localStorage.getItem(VERSION_KEY)) || 0;
     try{ records = JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }catch(e){ records = []; }
     if(!records.length || storedVer < DATA_VERSION){
@@ -376,10 +403,17 @@ function loadRecords(){
             console.log('📥 已导入 ' + records.length + ' 条产品记录');
         }
     } else {
-        console.log('📊 已加载 ' + records.length + ' 条记录');
+        console.log('💾 已加载 ' + records.length + ' 条记录（本地）');
     }
 }
-function saveRecords(){ localStorage.setItem(STORAGE_KEY, JSON.stringify(records)); localStorage.setItem(VERSION_KEY, DATA_VERSION); }
+
+async function saveRecords(){
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(records));
+    localStorage.setItem(VERSION_KEY, DATA_VERSION);
+    if (apiAvailable) {
+        try { await apiCall('PUT', records); } catch(e) { console.warn('云端同步失败'); }
+    }
+}
 function getPreloadSummary(){ return (typeof PRELOAD_SUMMARY !== 'undefined') ? PRELOAD_SUMMARY : null; }
 function isAllPreloadData(){ return records.length && records.every(r => r.id && r.id.startsWith('B')); }
 
@@ -514,11 +548,13 @@ function saveRecord(){
     if(id){
         const idx = records.findIndex(r=>r.id===id);
         if(idx >= 0) records[idx] = rec;
+        if(apiAvailable){ try{ await apiCall('PUT', rec, id); }catch(e){} }
     } else {
         records.push(rec);
+        if(apiAvailable){ try{ const r = await apiCall('POST', rec); rec.id = r.id; }catch(e){} }
     }
     records.sort((a,b)=>b.date.localeCompare(a.date)||b.id.localeCompare(a.id));
-    saveRecords();
+    await saveRecords();
     closeModal();
     refreshAll();
 }
@@ -528,9 +564,11 @@ function confirmDelete(id){
     const r = records.find(r=>r.id===id);
     if(r) document.getElementById('confirmMsg').textContent = `确定要删除「${r.productName}」的记录吗？此操作不可撤销。`;
     document.getElementById('confirmOverlay').classList.add('active');
-    document.getElementById('confirmDeleteBtn').onclick = ()=>{
-        records = records.filter(r=>r.id!==deleteTargetId);
-        saveRecords();
+    document.getElementById('confirmDeleteBtn').onclick = async ()=>{
+        const delId = deleteTargetId;
+        records = records.filter(r=>r.id!==delId);
+        if(apiAvailable){ try{ await apiCall('DELETE', null, delId); }catch(e){} }
+        await saveRecords();
         closeConfirm();
         refreshAll();
     };
@@ -776,16 +814,15 @@ window.closeConfirm=closeConfirm; window.resetFilters=resetFilters;
 window.autoCalc=autoCalc;
 
 /* ===== 初始化 ===== */
-(function init(){
-    loadRecords();
+(async function init(){
+    await loadRecords();
     records.sort((a,b)=>b.date.localeCompare(a.date)||b.id.localeCompare(a.id));
     buildDashboard();
     renderRecordsTable();
 
     console.log('📒 经营账单管理系统已就绪');
-    console.log('📊 已加载 '+records.length+' 条产品记录');
-    console.log('💾 数据存储在浏览器 localStorage');
-    console.log('💡 Ctrl+N 新增 | Ctrl+D 切换暗色 | 月度筛选 | CSV导出/导入');
+    console.log('📊 已加载 '+records.length+' 条记录 (' + (apiAvailable?'☁️云端同步':'💾本地存储') + ')');
+    console.log('💡 Ctrl+N 新增 | Ctrl+D 切换暗色 | CSV导出/导入');
     console.log('📱 Vercel 部署: biz-bills-4gts.vercel.app');
 })();
 
