@@ -382,28 +382,36 @@ async function loadRecords(){
     // 尝试从 Cloudflare KV 加载
     try {
         const data = await apiCall('GET');
-        records = data;
         apiAvailable = true;
-        // 同步到本地备份
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(records));
-        localStorage.setItem(VERSION_KEY, DATA_VERSION);
-        console.log('☁️ 从云端加载 ' + records.length + ' 条记录');
-        return;
+        if (data && data.length > 0) {
+            records = data;
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(records));
+            localStorage.setItem(VERSION_KEY, DATA_VERSION);
+            console.log('☁️ 从云端加载 ' + records.length + ' 条记录');
+            return;
+        }
+        // KV 为空，把预载数据/本地数据同步上去
+        console.log('☁️ 云端无数据，正在初始化...');
     } catch(e) {
         apiAvailable = false;
+        console.log('💾 无法连接云端，使用本地存储');
     }
-    // 本地模式
+    // 加载本地或预载数据
     const storedVer = parseInt(localStorage.getItem(VERSION_KEY)) || 0;
     try{ records = JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }catch(e){ records = []; }
-    if(!records.length || storedVer < DATA_VERSION){
+    if(!records.length){
         if(typeof PRELOAD_RECORDS !== 'undefined' && PRELOAD_RECORDS.length){
             records = PRELOAD_RECORDS;
-            saveRecords();
-            localStorage.setItem(VERSION_KEY, DATA_VERSION);
-            console.log('📥 已导入 ' + records.length + ' 条产品记录');
+            console.log('📥 已加载 ' + records.length + ' 条预载数据');
         }
     } else {
         console.log('💾 已加载 ' + records.length + ' 条记录（本地）');
+    }
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(records));
+    localStorage.setItem(VERSION_KEY, DATA_VERSION);
+    // 把数据同步到云端
+    if (apiAvailable && records.length > 0) {
+        try { await apiCall('PUT', records); console.log('☁️ 已同步 ' + records.length + ' 条到云端'); } catch(e) {}
     }
 }
 
