@@ -358,61 +358,28 @@ table .tag-partial{background:var(--info-bg);color:var(--info)}
 (function(){
 'use strict';
 
-// ===== 双模式：API（服务器） / localStorage（本地文件） =====
-const API_BASE = (window.location.protocol === 'http:' || window.location.protocol === 'https:')
-    ? window.location.origin + '/api' : null;
-const isAPIMode = !!API_BASE;
-
+// ===== 纯本地存储模式 =====
 const STORAGE_KEY = 'biz_records_v3';
 const VERSION_KEY = 'biz_records_ver';
 const DATA_VERSION = 3;
 let records = [];
 let deleteTargetId = null;
 
-// API 请求封装
-async function api(path, method, body) {
-    const opts = { method, headers: { 'Content-Type': 'application/json' } };
-    if (body) opts.body = JSON.stringify(body);
-    const res = await fetch(API_BASE + path, opts);
-    if (!res.ok) throw new Error('API error: ' + res.status);
-    return res.json();
-}
-
-// 加载数据
-async function loadRecords(){
-    if (isAPIMode) {
-        // 服务器模式：从 API 获取
-        try {
-            records = await api('/records', 'GET');
-            console.log('🌐 从服务器加载 ' + records.length + ' 条记录');
-            return;
-        } catch(e) {
-            console.warn('⚠️ 服务器连接失败，回退到本地存储:', e.message);
-        }
-    }
-    // 本地模式
+function loadRecords(){
     const storedVer = parseInt(localStorage.getItem(VERSION_KEY)) || 0;
     try{ records = JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }catch(e){ records = []; }
     if(!records.length || storedVer < DATA_VERSION){
         if(typeof PRELOAD_RECORDS !== 'undefined' && PRELOAD_RECORDS.length){
             records = PRELOAD_RECORDS;
-            await saveRecords();
+            saveRecords();
             localStorage.setItem(VERSION_KEY, DATA_VERSION);
             console.log('📥 已导入 ' + records.length + ' 条产品记录');
         }
     } else {
-        console.log('📊 从本地加载 ' + records.length + ' 条记录');
+        console.log('📊 已加载 ' + records.length + ' 条记录');
     }
 }
-
-// 保存数据
-async function saveRecords(){
-    if (isAPIMode) {
-        try { await api('/records', 'PUT', records); } catch(e) { console.warn('保存失败:', e.message); }
-    }
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(records));
-    localStorage.setItem(VERSION_KEY, DATA_VERSION);
-}
+function saveRecords(){ localStorage.setItem(STORAGE_KEY, JSON.stringify(records)); localStorage.setItem(VERSION_KEY, DATA_VERSION); }
 function getPreloadSummary(){ return (typeof PRELOAD_SUMMARY !== 'undefined') ? PRELOAD_SUMMARY : null; }
 function isAllPreloadData(){ return records.length && records.every(r => r.id && r.id.startsWith('B')); }
 
@@ -517,7 +484,7 @@ function closeModal(){ document.getElementById('modalOverlay').classList.remove(
 document.getElementById('modalOverlay').addEventListener('click', function(e){ if(e.target===this) closeModal(); });
 
 /* ===== 保存记录 ===== */
-async function saveRecord(){
+function saveRecord(){
     const id = document.getElementById('editId').value;
     const date = document.getElementById('rDate').value;
     const productName = document.getElementById('rProductName').value.trim();
@@ -547,13 +514,11 @@ async function saveRecord(){
     if(id){
         const idx = records.findIndex(r=>r.id===id);
         if(idx >= 0) records[idx] = rec;
-        if(isAPIMode) { try{ await api('/records/'+encodeURIComponent(id), 'PUT', rec); }catch(e){ console.warn(e); } }
     } else {
         records.push(rec);
-        if(isAPIMode) { try{ const result = await api('/records', 'POST', rec); rec.id = result.id; }catch(e){ console.warn(e); } }
     }
     records.sort((a,b)=>b.date.localeCompare(a.date)||b.id.localeCompare(a.id));
-    await saveRecords();
+    saveRecords();
     closeModal();
     refreshAll();
 }
@@ -563,11 +528,9 @@ function confirmDelete(id){
     const r = records.find(r=>r.id===id);
     if(r) document.getElementById('confirmMsg').textContent = `确定要删除「${r.productName}」的记录吗？此操作不可撤销。`;
     document.getElementById('confirmOverlay').classList.add('active');
-    document.getElementById('confirmDeleteBtn').onclick = async ()=>{
-        const delId = deleteTargetId;
-        records = records.filter(r=>r.id!==delId);
-        if(isAPIMode) { try{ await api('/records/'+encodeURIComponent(delId), 'DELETE'); }catch(e){ console.warn(e); } }
-        await saveRecords();
+    document.getElementById('confirmDeleteBtn').onclick = ()=>{
+        records = records.filter(r=>r.id!==deleteTargetId);
+        saveRecords();
         closeConfirm();
         refreshAll();
     };
@@ -813,17 +776,17 @@ window.closeConfirm=closeConfirm; window.resetFilters=resetFilters;
 window.autoCalc=autoCalc;
 
 /* ===== 初始化 ===== */
-(async function init(){
-    await loadRecords();
+(function init(){
+    loadRecords();
     records.sort((a,b)=>b.date.localeCompare(a.date)||b.id.localeCompare(a.id));
     buildDashboard();
     renderRecordsTable();
 
-    console.log('📒 经营账单管理系统已就绪 (' + (isAPIMode?'服务器模式':'本地模式') + ')');
+    console.log('📒 经营账单管理系统已就绪');
     console.log('📊 已加载 '+records.length+' 条产品记录');
-    if(isAPIMode) console.log('🌐 数据存储: 服务器 data.json | 多设备可同时访问');
-    else console.log('💾 数据存储: 浏览器 localStorage');
-    console.log('💡 Ctrl+N 新增 | Ctrl+D 切换暗色 | 看板支持按月筛选');
+    console.log('💾 数据存储在浏览器 localStorage');
+    console.log('💡 Ctrl+N 新增 | Ctrl+D 切换暗色 | 月度筛选 | CSV导出/导入');
+    console.log('📱 Vercel 部署: biz-bills-4gts.vercel.app');
 })();
 
 })();
