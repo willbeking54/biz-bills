@@ -64,14 +64,9 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang S
 .content{padding:20px;display:flex;flex-direction:column;gap:20px}
 .page{display:none;flex-direction:column;gap:20px}
 .page.active{display:flex}
-
-/* 统计卡片 */
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .stat-card{background:var(--bg-card);border:1px solid var(--border-card);border-radius:var(--radius);padding:16px 20px;display:flex;align-items:center;gap:14px;transition:all var(--transition);box-shadow:var(--shadow-sm);animation:fadeInUp .5s ease both}
-.stat-card:nth-child(1){animation-delay:.05s}
-.stat-card:nth-child(2){animation-delay:.1s}
-.stat-card:nth-child(3){animation-delay:.15s}
-.stat-card:nth-child(4){animation-delay:.2s}
+.stat-card:nth-child(1){animation-delay:.05s}.stat-card:nth-child(2){animation-delay:.1s}.stat-card:nth-child(3){animation-delay:.15s}.stat-card:nth-child(4){animation-delay:.2s}
 .stat-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg);border-color:var(--accent)}
 .stat-card .stat-icon{width:44px;height:44px;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
 .stat-card .stat-icon.purchase{background:var(--danger-bg);color:var(--danger)}
@@ -81,35 +76,22 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang S
 .stat-card .stat-info{flex:1;min-width:0}
 .stat-card .stat-label{font-size:12px;color:var(--text-secondary);font-weight:500}
 .stat-card .stat-value{font-size:24px;font-weight:700;margin:1px 0}
-.stat-card .stat-value.positive{color:var(--success)}
-.stat-card .stat-value.negative{color:var(--danger)}
-.stat-card .stat-value.neutral{color:var(--warning)}
+.stat-card .stat-value.positive{color:var(--success)}.stat-card .stat-value.negative{color:var(--danger)}.stat-card .stat-value.neutral{color:var(--warning)}
 .stat-card .stat-sub{font-size:10px;color:var(--text-muted);line-height:1.4}
-
-/* 工具栏 */
 .dash-toolbar,.bill-toolbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .dash-toolbar select,.bill-toolbar select,.bill-toolbar input{padding:7px 12px;border:1px solid var(--border-color);border-radius:var(--radius-sm);background:var(--bg-input);color:var(--text-primary);font-size:13px;outline:none}
 .dash-toolbar select:focus,.bill-toolbar select:focus,.bill-toolbar input:focus{border-color:var(--accent)}
 .bill-toolbar{background:var(--bg-card);border:1px solid var(--border-card);border-radius:var(--radius);padding:14px 20px;box-shadow:var(--shadow-sm);justify-content:space-between}
-
-/* 图表 */
 .charts-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .chart-card{background:var(--bg-card);border:1px solid var(--border-card);border-radius:var(--radius);padding:16px 20px;box-shadow:var(--shadow-sm);transition:all var(--transition)}
 .chart-card h3{font-size:15px;font-weight:600;margin-bottom:12px}
 .chart-card .chart-wrap{position:relative;width:100%;height:280px}
-
 .btn{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border:none;border-radius:var(--radius-sm);font-size:13px;font-weight:600;cursor:pointer;transition:all var(--transition);white-space:nowrap}
-.btn-primary{background:var(--accent);color:#fff}
-.btn-primary:hover{background:var(--accent-hover);transform:translateY(-1px);box-shadow:0 4px 12px rgba(99,102,241,.35)}
-.btn-outline{background:transparent;border:1px solid var(--border-color);color:var(--text-secondary)}
-.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
-.btn-danger{background:transparent;border:1px solid var(--danger);color:var(--danger)}
-.btn-danger:hover{background:var(--danger);color:#fff}
-.btn-sm{padding:4px 10px;font-size:11px;border-radius:6px}
-.btn-xs{padding:3px 8px;font-size:10px;border-radius:5px}
+.btn-primary{background:var(--accent);color:#fff}.btn-primary:hover{background:var(--accent-hover);transform:translateY(-1px);box-shadow:0 4px 12px rgba(99,102,241,.35)}
+.btn-outline{background:transparent;border:1px solid var(--border-color);color:var(--text-secondary)}.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.btn-danger{background:transparent;border:1px solid var(--danger);color:var(--danger)}.btn-danger:hover{background:var(--danger);color:#fff}
+.btn-sm{padding:4px 10px;font-size:11px;border-radius:6px}.btn-xs{padding:3px 8px;font-size:10px;border-radius:5px}
 .record-count{font-size:12px;color:var(--text-muted)}
-
-/* 表格 */
 .table-card{background:var(--bg-card);border:1px solid var(--border-card);border-radius:var(--radius);box-shadow:var(--shadow-sm);overflow:hidden}
 .table-wrap{overflow-x:auto}
 table{width:100%;border-collapse:collapse}
@@ -117,7 +99,7 @@ table th,table td{padding:8px 12px;text-align:left;font-size:12px}
 table th{font-size:10px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px;background:var(--bg-hover);white-space:nowrap}
 table tbody tr{transition:background var(--transition);border-bottom:1px solid var(--border-color)}
 table tbody tr:hover{background:var(--bg-hover)}
-table .num{text-align:right;font-variant-numeric:tabular-nums}
+table .num{text-align:right}
 table .profit-pos{color:var(--success);font-weight:600}
 table .profit-neg{color:var(--danger);font-weight:600}
 table .tag{display:inline-block;padding:2px 7px;border-radius:3px;font-size:10px;font-weight:600}
@@ -126,30 +108,22 @@ table .tag-unsold{background:var(--warning-bg);color:var(--warning)}
 table .tag-partial{background:var(--info-bg);color:var(--info)}
 .empty-state{text-align:center;padding:60px 20px;color:var(--text-muted)}
 .empty-state .empty-icon{font-size:48px;margin-bottom:12px}
-.empty-state p{font-size:15px;font-weight:500;margin-bottom:4px}
-.empty-state span{font-size:12px}
-
-/* 模态框 */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;align-items:flex-start;justify-content:center;padding-top:30px;animation:fadeIn .2s ease}
 .modal-overlay.active{display:flex}
 .modal{background:var(--bg-card);border-radius:var(--radius-lg);width:90%;max-width:620px;max-height:90vh;overflow-y:auto;box-shadow:var(--shadow-xl);animation:slideUp .3s ease}
 .modal-header{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-bottom:1px solid var(--border-color);position:sticky;top:0;background:var(--bg-card);z-index:1}
 .modal-header h3{font-size:16px;font-weight:700}
-.modal-header .close-btn{width:32px;height:32px;border:none;border-radius:50%;background:transparent;color:var(--text-secondary);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all var(--transition)}
-.modal-header .close-btn:hover{background:var(--bg-hover);color:var(--text-primary)}
+.modal-header .close-btn{width:32px;height:32px;border:none;border-radius:50%;background:transparent;color:var(--text-secondary);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center}
 .modal-body{padding:20px}
 .modal-footer{display:flex;justify-content:flex-end;gap:10px;padding:0 20px 20px}
 .form-section{margin-bottom:20px}
-.form-section-title{font-size:13px;font-weight:700;color:var(--accent);margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--border-color);display:flex;align-items:center;gap:6px}
+.form-section-title{font-size:13px;font-weight:700;color:var(--accent);margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--border-color)}
 .form-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:10px}
 .form-row.col2{grid-template-columns:1fr 1fr}
-.form-group{}
 .form-group label{display:block;font-size:11px;font-weight:600;color:var(--text-secondary);margin-bottom:4px}
-.form-group input,.form-group select{width:100%;padding:7px 10px;border:1px solid var(--border-color);border-radius:6px;background:var(--bg-input);color:var(--text-primary);font-size:13px;outline:none;transition:border var(--transition);font-family:inherit}
+.form-group input,.form-group select{width:100%;padding:7px 10px;border:1px solid var(--border-color);border-radius:6px;background:var(--bg-input);color:var(--text-primary);font-size:13px;outline:none;font-family:inherit}
 .form-group input:focus,.form-group select:focus{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-light)}
-.form-group input[readonly]{background:var(--bg-hover);color:var(--text-muted);cursor:default}
-.form-group .calc-hint{font-size:10px;color:var(--text-muted);margin-top:2px}
-
+.form-group input[readonly]{background:var(--bg-hover);color:var(--text-muted)}
 .confirm-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:210;align-items:center;justify-content:center}
 .confirm-overlay.active{display:flex}
 .confirm-box{background:var(--bg-card);border-radius:var(--radius);padding:28px;text-align:center;max-width:380px;width:90%;box-shadow:var(--shadow-xl);animation:slideUp .3s ease}
@@ -159,32 +133,23 @@ table .tag-partial{background:var(--info-bg);color:var(--info)}
 .confirm-box .confirm-actions{display:flex;gap:10px;justify-content:center}
 .sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:99}
 .sidebar-overlay.active{display:block}
-
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 @keyframes fadeInUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 @keyframes slideUp{from{opacity:0;transform:translateY(20px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
-
 @media(max-width:1200px){.stats-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:992px){.charts-grid{grid-template-columns:1fr}}
 @media(max-width:768px){
     .sidebar{transform:translateX(-100%)}.sidebar.open{transform:translateX(0);box-shadow:var(--shadow-xl)}
     .main{margin-left:0}.header .menu-toggle{display:flex}
     .content{padding:12px;gap:12px}.stats-grid{grid-template-columns:1fr 1fr}
-    .stat-card{padding:12px 14px}.stat-card .stat-value{font-size:20px}
-    .chart-card .chart-wrap{height:220px}
-    .form-row{grid-template-columns:1fr 1fr}
+    .stat-card{padding:12px 14px}.stat-card .stat-value{font-size:20px}.stat-card .stat-icon{width:36px;height:36px;font-size:18px}
+    .chart-card .chart-wrap{height:220px}.form-row{grid-template-columns:1fr 1fr}
     .bill-toolbar{flex-direction:column;align-items:stretch}
-    .modal{max-width:100%;margin:0 8px}
 }
-@media(max-width:480px){
-    .stats-grid{grid-template-columns:1fr}
-    .form-row{grid-template-columns:1fr}
-    table th,table td{padding:6px 8px;font-size:10px}
-}
+@media(max-width:480px){.stats-grid{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-
 <aside class="sidebar" id="sidebar">
     <div class="sidebar-logo"><div class="logo-icon">📒</div><h1>经营账单</h1></div>
     <nav class="sidebar-nav">
@@ -198,77 +163,37 @@ table .tag-partial{background:var(--info-bg);color:var(--info)}
     <div class="sidebar-footer"><div class="sidebar-user"><div class="avatar">👤</div><div class="user-name">我的账本</div></div></div>
 </aside>
 <div class="sidebar-overlay" id="sidebarOverlay"></div>
-
 <main class="main">
     <header class="header">
         <button class="menu-toggle" id="menuToggle">☰</button>
         <span class="header-title" id="headerTitle">📊 数据看板</span>
-        <div class="header-actions">
-            <button class="theme-toggle" id="themeToggle" title="切换主题">🌙</button>
-        </div>
+        <div class="header-actions"><button class="theme-toggle" id="themeToggle" title="切换主题">🌙</button></div>
     </header>
-
     <div class="content">
-
-        <!-- ===== 数据看板 ===== -->
         <div class="page active" id="page-dashboard">
             <div class="dash-toolbar">
                 <span style="font-size:13px;font-weight:500;color:var(--text-secondary)">📅 月份：</span>
                 <select id="dashMonthFilter"><option value="all">全部月份</option></select>
                 <span style="font-size:11px;color:var(--text-muted)" id="dashDataRange"></span>
             </div>
-
             <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-icon purchase">📦</div>
-                    <div class="stat-info">
-                        <div class="stat-label">采购成本总额</div>
-                        <div class="stat-value" id="d-purchase-cost">¥0</div>
-                        <div class="stat-sub">采购总价 + 额外成本</div>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon revenue">💰</div>
-                    <div class="stat-info">
-                        <div class="stat-label">销售收入</div>
-                        <div class="stat-value positive" id="d-sales-revenue">¥0</div>
-                        <div class="stat-sub">售出单价 × 销售数量</div>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon profit">📈</div>
-                    <div class="stat-info">
-                        <div class="stat-label">已实现利润</div>
-                        <div class="stat-value" id="d-real-profit">¥0</div>
-                        <div class="stat-sub">(售出单价 − 单个成本) × 销售数量</div>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon inventory">🏪</div>
-                    <div class="stat-info">
-                        <div class="stat-label">库存货值</div>
-                        <div class="stat-value neutral" id="d-inventory">¥0</div>
-                        <div class="stat-sub">单个成本 × 剩余未售数量</div>
-                    </div>
-                </div>
+                <div class="stat-card"><div class="stat-icon purchase">📦</div><div class="stat-info"><div class="stat-label">采购成本总额</div><div class="stat-value" id="d-purchase-cost">¥0</div><div class="stat-sub">采购总价 + 额外成本</div></div></div>
+                <div class="stat-card"><div class="stat-icon revenue">💰</div><div class="stat-info"><div class="stat-label">销售收入</div><div class="stat-value positive" id="d-sales-revenue">¥0</div><div class="stat-sub">售出单价 × 销售数量</div></div></div>
+                <div class="stat-card"><div class="stat-icon profit">📈</div><div class="stat-info"><div class="stat-label">已实现利润</div><div class="stat-value" id="d-real-profit">¥0</div><div class="stat-sub">(售出单价 − 单个成本) × 销售数量</div></div></div>
+                <div class="stat-card"><div class="stat-icon inventory">🏪</div><div class="stat-info"><div class="stat-label">库存货值</div><div class="stat-value neutral" id="d-inventory">¥0</div><div class="stat-sub">单个成本 × 剩余未售数量</div></div></div>
             </div>
-
             <div class="charts-grid">
                 <div class="chart-card"><h3>📈 月度收支趋势</h3><div class="chart-wrap"><canvas id="monthlyChart"></canvas></div></div>
                 <div class="chart-card"><h3>🍩 产品状态分布</h3><div class="chart-wrap"><canvas id="categoryChart"></canvas></div></div>
             </div>
-
             <div class="table-card">
                 <div style="padding:12px 20px;border-bottom:1px solid var(--border-color);display:flex;justify-content:space-between;align-items:center">
                     <h3 style="font-size:14px;font-weight:600">📋 最近记录</h3>
                     <button class="btn btn-outline btn-sm" onclick="switchPage('records')">查看全部 →</button>
                 </div>
-                <div class="table-wrap"><table><thead><tr><th>日期</th><th>产品名称</th><th>采购成本</th><th>销售收入</th><th>利润</th><th>状态</th></tr></thead>
-                <tbody id="recentTbody"></tbody></table></div>
+                <div class="table-wrap"><table><thead><tr><th>日期</th><th>产品名称</th><th>采购成本</th><th>销售收入</th><th>利润</th><th>状态</th></tr></thead><tbody id="recentTbody"></tbody></table></div>
             </div>
         </div>
-
-        <!-- ===== 产品记录列表 ===== -->
         <div class="page" id="page-records">
             <div class="bill-toolbar">
                 <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
@@ -282,14 +207,10 @@ table .tag-partial{background:var(--info-bg);color:var(--info)}
                     <button class="btn btn-primary" onclick="openAddModal()">＋ 新增记录</button>
                 </div>
             </div>
-            <div class="table-card"><div class="table-wrap"><table><thead><tr>
-                <th>日期</th><th>产品名称</th><th>采购数量</th><th>采购单价</th><th>采购总价</th><th>额外成本</th><th>单个成本</th><th>销售数量</th><th>剩余</th><th>售出单价</th><th>销售总价</th><th>利润</th><th>操作</th>
-            </tr></thead><tbody id="recordsTbody"></tbody></table></div></div>
+            <div class="table-card"><div class="table-wrap"><table><thead><tr><th>日期</th><th>产品名称</th><th>采购数量</th><th>采购单价</th><th>采购总价</th><th>额外成本</th><th>单个成本</th><th>销售数量</th><th>剩余</th><th>售出单价</th><th>销售总价</th><th>利润</th><th>操作</th></tr></thead><tbody id="recordsTbody"></tbody></table></div></div>
         </div>
     </div>
 </main>
-
-<!-- 记账模态框 -->
 <div class="modal-overlay" id="modalOverlay">
     <div class="modal">
         <div class="modal-header"><h3 id="modalTitle">＋ 新增产品记录</h3><button class="close-btn" onclick="closeModal()">✕</button></div>
@@ -299,38 +220,29 @@ table .tag-partial{background:var(--info-bg);color:var(--info)}
                 <div class="form-group"><label>📅 日期</label><input type="date" id="rDate"></div>
                 <div class="form-group"><label>📦 产品名称</label><input type="text" id="rProductName" placeholder="例如：阿芙佳朵"></div>
             </div>
-
             <div class="form-section">
                 <div class="form-section-title">📥 采购信息</div>
                 <div class="form-row">
-                    <div class="form-group"><label>采购数量</label><input type="number" id="rPurchaseQty" placeholder="0" min="0" step="1" onchange="autoCalc()" oninput="autoCalc()"></div>
-                    <div class="form-group"><label>采购单价 (¥)</label><input type="number" id="rPurchaseUnitPrice" placeholder="0.00" min="0" step="0.01" onchange="autoCalc()" oninput="autoCalc()"></div>
-                    <div class="form-group"><label>采购总价 (¥) <span style="font-size:10px;color:var(--text-muted)">自动</span></label><input type="number" id="rPurchaseTotal" readonly></div>
+                    <div class="form-group"><label>采购数量</label><input type="number" id="rPurchaseQty" min="0" step="1" onchange="autoCalc()" oninput="autoCalc()"></div>
+                    <div class="form-group"><label>采购单价 (¥)</label><input type="number" id="rPurchaseUnitPrice" min="0" step="0.01" onchange="autoCalc()" oninput="autoCalc()"></div>
+                    <div class="form-group"><label>采购总价 (¥) 自动</label><input type="number" id="rPurchaseTotal" readonly></div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group"><label>额外成本 (¥) <span style="font-size:10px;color:var(--text-muted)">运费等</span></label><input type="number" id="rExtraCost" placeholder="0.00" min="0" step="0.01" onchange="autoCalc()" oninput="autoCalc()"></div>
-                    <div class="form-group"><label>采购单个成本 (¥) <span style="font-size:10px;color:var(--text-muted)">自动</span></label><input type="number" id="rUnitCost" readonly></div>
+                    <div class="form-group"><label>额外成本 (¥) 运费等</label><input type="number" id="rExtraCost" min="0" step="0.01" onchange="autoCalc()" oninput="autoCalc()"></div>
+                    <div class="form-group"><label>采购单个成本 (¥) 自动</label><input type="number" id="rUnitCost" readonly></div>
                     <div class="form-group"><label>备注</label><input type="text" id="rNote" placeholder="选填"></div>
                 </div>
-                <div style="font-size:10px;color:var(--text-muted)">
-                    💡 采购总价 = 采购数量 × 采购单价 | 单个成本 = (采购总价 + 额外成本) ÷ 采购数量
-                </div>
             </div>
-
             <div class="form-section">
                 <div class="form-section-title">📤 销售信息</div>
                 <div class="form-row">
-                    <div class="form-group"><label>销售数量</label><input type="number" id="rSalesQty" placeholder="0" min="0" step="1" onchange="autoCalc()" oninput="autoCalc()"></div>
-                    <div class="form-group"><label>剩余未售 <span style="font-size:10px;color:var(--text-muted)">自动</span></label><input type="number" id="rUnsoldQty" readonly></div>
-                    <div class="form-group"><label>售出单价 (¥)</label><input type="number" id="rSellingUnitPrice" placeholder="0.00" min="0" step="0.01" onchange="autoCalc()" oninput="autoCalc()"></div>
+                    <div class="form-group"><label>销售数量</label><input type="number" id="rSalesQty" min="0" step="1" onchange="autoCalc()" oninput="autoCalc()"></div>
+                    <div class="form-group"><label>剩余未售 自动</label><input type="number" id="rUnsoldQty" readonly></div>
+                    <div class="form-group"><label>售出单价 (¥)</label><input type="number" id="rSellingUnitPrice" min="0" step="0.01" onchange="autoCalc()" oninput="autoCalc()"></div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group"><label>销售总价 (¥) <span style="font-size:10px;color:var(--text-muted)">自动</span></label><input type="number" id="rSalesTotal" readonly></div>
-                    <div class="form-group"><label>已实现利润 (¥) <span style="font-size:10px;color:var(--text-muted)">自动</span></label><input type="number" id="rRealizedProfit" readonly></div>
-                </div>
-                <div style="font-size:10px;color:var(--text-muted)">
-                    💡 剩余未售 = 采购数量 − 销售数量 | 销售总价 = 售出单价 × 销售数量<br>
-                    💡 已实现利润 = (售出单价 − 采购单个成本) × 销售数量
+                    <div class="form-group"><label>销售总价 (¥) 自动</label><input type="number" id="rSalesTotal" readonly></div>
+                    <div class="form-group"><label>已实现利润 (¥) 自动</label><input type="number" id="rRealizedProfit" readonly></div>
                 </div>
             </div>
         </div>
@@ -340,500 +252,259 @@ table .tag-partial{background:var(--info-bg);color:var(--info)}
         </div>
     </div>
 </div>
-
-<!-- 删除确认 -->
 <div class="confirm-overlay" id="confirmOverlay">
-    <div class="confirm-box">
-        <div class="confirm-icon">⚠️</div><h4>确认删除</h4><p id="confirmMsg"></p>
-        <div class="confirm-actions">
-            <button class="btn btn-outline" onclick="closeConfirm()">取消</button>
-            <button class="btn btn-danger" id="confirmDeleteBtn">确认删除</button>
-        </div>
+    <div class="confirm-box"><div class="confirm-icon">⚠️</div><h4>确认删除</h4><p id="confirmMsg"></p>
+        <div class="confirm-actions"><button class="btn btn-outline" onclick="closeConfirm()">取消</button><button class="btn btn-danger" id="confirmDeleteBtn">确认删除</button></div>
     </div>
 </div>
-
 <input type="file" id="importFileInput" accept=".csv" style="display:none">
 
 <script>
 (function(){
 'use strict';
+const STORAGE_KEY='biz_records_v3',VERSION_KEY='biz_records_ver',DATA_VERSION=3;
+let records=[],deleteTargetId=null;
 
-// ===== 数据层：Cloudflare KV 同步 + localStorage 备用 =====
-const STORAGE_KEY = 'biz_records_v3';
-const VERSION_KEY = 'biz_records_ver';
-const DATA_VERSION = 3;
-let records = [];
-let deleteTargetId = null;
-// 检测是否在 Cloudflare Pages 上运行（有 API 可用）
-const API_URL = '/api/records';
-let apiAvailable = false;
-
-async function apiCall(method, body, id) {
-    let url = API_URL;
-    if (id) url += '/' + encodeURIComponent(id);
-    const opts = { method, headers: { 'Content-Type': 'application/json' } };
-    if (body) opts.body = JSON.stringify(body);
-    const res = await fetch(url, opts);
-    if (!res.ok) throw new Error('API error: ' + res.status);
-    return res.json();
-}
-
-async function loadRecords(){
-    // 尝试从 Cloudflare KV 加载
-    try {
-        const data = await apiCall('GET');
-        apiAvailable = true;
-        if (data && data.length > 0) {
-            records = data;
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(records));
-            localStorage.setItem(VERSION_KEY, DATA_VERSION);
-            console.log('☁️ 从云端加载 ' + records.length + ' 条记录');
-            return;
+function loadRecords(){
+    const ver=parseInt(localStorage.getItem(VERSION_KEY))||0;
+    try{records=JSON.parse(localStorage.getItem(STORAGE_KEY))||[]}catch(e){records=[]}
+    if(!records.length||ver<DATA_VERSION){
+        if(typeof PRELOAD_RECORDS!=='undefined'&&PRELOAD_RECORDS.length){
+            records=PRELOAD_RECORDS;
+            saveRecords();
+            localStorage.setItem(VERSION_KEY,DATA_VERSION);
+            console.log('📥 已加载 '+records.length+' 条记录')
         }
-        // KV 为空，把预载数据/本地数据同步上去
-        console.log('☁️ 云端无数据，正在初始化...');
-    } catch(e) {
-        apiAvailable = false;
-        console.log('💾 无法连接云端，使用本地存储');
-    }
-    // 加载本地或预载数据
-    const storedVer = parseInt(localStorage.getItem(VERSION_KEY)) || 0;
-    try{ records = JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }catch(e){ records = []; }
-    if(!records.length){
-        if(typeof PRELOAD_RECORDS !== 'undefined' && PRELOAD_RECORDS.length){
-            records = PRELOAD_RECORDS;
-            console.log('📥 已加载 ' + records.length + ' 条预载数据');
-        }
-    } else {
-        console.log('💾 已加载 ' + records.length + ' 条记录（本地）');
-    }
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(records));
-    localStorage.setItem(VERSION_KEY, DATA_VERSION);
-    // 把数据同步到云端
-    if (apiAvailable && records.length > 0) {
-        try { await apiCall('PUT', records); console.log('☁️ 已同步 ' + records.length + ' 条到云端'); } catch(e) {}
-    }
+    }else{console.log('📊 已加载 '+records.length+' 条记录')}
 }
+function saveRecords(){localStorage.setItem(STORAGE_KEY,JSON.stringify(records));localStorage.setItem(VERSION_KEY,DATA_VERSION)}
 
-async function saveRecords(){
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(records));
-    localStorage.setItem(VERSION_KEY, DATA_VERSION);
-    if (apiAvailable) {
-        try { await apiCall('PUT', records); } catch(e) { console.warn('云端同步失败'); }
-    }
-}
-function getPreloadSummary(){ return (typeof PRELOAD_SUMMARY !== 'undefined') ? PRELOAD_SUMMARY : null; }
-function isAllPreloadData(){ return records.length && records.every(r => r.id && r.id.startsWith('B')); }
-
-/* ===== 自动计算 ===== */
 function autoCalc(){
-    const pq = parseFloat(document.getElementById('rPurchaseQty').value) || 0;
-    const pup = parseFloat(document.getElementById('rPurchaseUnitPrice').value) || 0;
-    const ec = parseFloat(document.getElementById('rExtraCost').value) || 0;
-    const sq = parseFloat(document.getElementById('rSalesQty').value) || 0;
-    const sup = parseFloat(document.getElementById('rSellingUnitPrice').value) || 0;
-
-    // 采购总价 = 采购数量 × 采购单价
-    const pt = pq * pup;
-    document.getElementById('rPurchaseTotal').value = pt > 0 ? pt.toFixed(2) : '';
-
-    // 单个成本 = (采购总价 + 额外成本) ÷ 采购数量
-    const uc = pq > 0 ? (pt + ec) / pq : 0;
-    document.getElementById('rUnitCost').value = uc > 0 ? uc.toFixed(2) : '';
-
-    // 剩余未售 = 采购数量 - 销售数量
-    const uq = Math.max(0, pq - sq);
-    document.getElementById('rUnsoldQty').value = pq > 0 ? uq : '';
-
-    // 销售总价 = 售出单价 × 销售数量
-    const st = sup * sq;
-    document.getElementById('rSalesTotal').value = st > 0 ? st.toFixed(2) : '';
-
-    // 已实现利润 = (售出单价 - 单个成本) × 销售数量
-    const rp = sq > 0 ? (sup - uc) * sq : 0;
-    document.getElementById('rRealizedProfit').value = rp.toFixed(2);
+    const pq=parseFloat(document.getElementById('rPurchaseQty').value)||0;
+    const pup=parseFloat(document.getElementById('rPurchaseUnitPrice').value)||0;
+    const ec=parseFloat(document.getElementById('rExtraCost').value)||0;
+    const sq=parseFloat(document.getElementById('rSalesQty').value)||0;
+    const sup=parseFloat(document.getElementById('rSellingUnitPrice').value)||0;
+    const pt=pq*pup;
+    document.getElementById('rPurchaseTotal').value=pt>0?pt.toFixed(2):'';
+    const uc=pq>0?(pt+ec)/pq:0;
+    document.getElementById('rUnitCost').value=uc>0?uc.toFixed(2):'';
+    document.getElementById('rUnsoldQty').value=pq>0?Math.max(0,pq-sq):'';
+    const st=sup*sq;
+    document.getElementById('rSalesTotal').value=st>0?st.toFixed(2):'';
+    document.getElementById('rRealizedProfit').value=(sq>0?(sup-uc)*sq:0).toFixed(2)
 }
 
-/* ===== 主题 ===== */
-const html = document.documentElement;
-const themeToggle = document.getElementById('themeToggle');
-const savedTheme = localStorage.getItem('dashboard-theme') || 'light';
-html.setAttribute('data-theme', savedTheme);
-themeToggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
-themeToggle.addEventListener('click', ()=>{
-    const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    html.setAttribute('data-theme', next);
-    localStorage.setItem('dashboard-theme', next);
-    themeToggle.textContent = next === 'dark' ? '☀️' : '🌙';
-    buildCharts();
+const html=document.documentElement,themeToggle=document.getElementById('themeToggle');
+const st=localStorage.getItem('dashboard-theme')||'light';
+html.setAttribute('data-theme',st);themeToggle.textContent=st==='dark'?'☀️':'🌙';
+themeToggle.addEventListener('click',()=>{
+    const n=html.getAttribute('data-theme')==='dark'?'light':'dark';
+    html.setAttribute('data-theme',n);localStorage.setItem('dashboard-theme',n);
+    themeToggle.textContent=n==='dark'?'☀️':'🌙';buildCharts()
 });
 
-/* ===== 侧边栏 ===== */
-const sidebar = document.getElementById('sidebar');
-const overlay = document.getElementById('sidebarOverlay');
-document.getElementById('menuToggle').addEventListener('click', ()=> sidebar.classList.contains('open') ? closeSidebar() : openSidebar());
-overlay.addEventListener('click', closeSidebar);
-function openSidebar(){ sidebar.classList.add('open'); overlay.classList.add('active'); }
-function closeSidebar(){ sidebar.classList.remove('open'); overlay.classList.remove('active'); }
-
-/* ===== 页面切换 ===== */
-document.querySelectorAll('.sidebar-nav a[data-page]').forEach(link=>{
-    link.addEventListener('click', ()=>{ switchPage(link.dataset.page); if(window.innerWidth <= 768) closeSidebar(); });
+const sidebar=document.getElementById('sidebar'),overlay=document.getElementById('sidebarOverlay');
+document.getElementById('menuToggle').addEventListener('click',()=>sidebar.classList.contains('open')?closeSb():openSb());
+overlay.addEventListener('click',closeSb);
+function openSb(){sidebar.classList.add('open');overlay.classList.add('active')}
+function closeSb(){sidebar.classList.remove('open');overlay.classList.remove('active')}
+document.querySelectorAll('.sidebar-nav a[data-page]').forEach(l=>{
+    l.addEventListener('click',()=>{switchPage(l.dataset.page);if(window.innerWidth<=768)closeSb()})
 });
-function switchPage(name){
+function switchPage(n){
     document.querySelectorAll('.sidebar-nav a[data-page]').forEach(l=>l.classList.remove('active'));
-    const nl = document.querySelector(`.sidebar-nav a[data-page="${name}"]`);
-    if(nl) nl.classList.add('active');
+    const nl=document.querySelector(`.sidebar-nav a[data-page="${n}"]`);if(nl)nl.classList.add('active');
     document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-    const page = document.getElementById('page-'+name);
-    if(page) page.classList.add('active');
-    document.getElementById('headerTitle').textContent = (name==='dashboard'?'📊 数据看板':'📋 产品记录');
-    if(name==='records'){ buildMonthFilters(); renderRecordsTable(); }
-    if(name==='dashboard') buildDashboard();
+    const pg=document.getElementById('page-'+n);if(pg)pg.classList.add('active');
+    document.getElementById('headerTitle').textContent=n==='dashboard'?'📊 数据看板':'📋 产品记录';
+    if(n==='records'){buildMonthFilters();renderRecordsTable()}
+    if(n==='dashboard')buildDashboard()
 }
-
-/* ===== 模态框 ===== */
 function openAddModal(){
-    document.getElementById('editId').value = '';
-    document.getElementById('modalTitle').textContent = '＋ 新增产品记录';
-    document.getElementById('rDate').value = new Date().toISOString().split('T')[0];
-    ['rProductName','rPurchaseQty','rPurchaseUnitPrice','rPurchaseTotal','rExtraCost','rUnitCost','rSalesQty','rUnsoldQty','rSellingUnitPrice','rSalesTotal','rRealizedProfit','rNote'].forEach(id=>{
-        document.getElementById(id).value = '';
-    });
-    document.getElementById('modalOverlay').classList.add('active');
+    document.getElementById('editId').value='';document.getElementById('modalTitle').textContent='＋ 新增产品记录';
+    document.getElementById('rDate').value=new Date().toISOString().split('T')[0];
+    ['rProductName','rPurchaseQty','rPurchaseUnitPrice','rPurchaseTotal','rExtraCost','rUnitCost','rSalesQty','rUnsoldQty','rSellingUnitPrice','rSalesTotal','rRealizedProfit','rNote'].forEach(id=>document.getElementById(id).value='');
+    document.getElementById('modalOverlay').classList.add('active')
 }
 function openEditModal(id){
-    const r = records.find(r=>r.id===id);
-    if(!r){ alert('记录未找到'); return; }
-    document.getElementById('editId').value = r.id;
-    document.getElementById('modalTitle').textContent = '✏️ 编辑产品记录';
-    document.getElementById('rDate').value = r.date;
-    document.getElementById('rProductName').value = r.productName;
-    document.getElementById('rPurchaseQty').value = r.purchaseQty;
-    document.getElementById('rPurchaseUnitPrice').value = r.purchaseUnitPrice;
-    document.getElementById('rPurchaseTotal').value = r.purchaseTotal;
-    document.getElementById('rExtraCost').value = r.extraCost;
-    document.getElementById('rUnitCost').value = r.unitCost;
-    document.getElementById('rSalesQty').value = r.salesQty;
-    document.getElementById('rUnsoldQty').value = r.unsoldQty;
-    document.getElementById('rSellingUnitPrice').value = r.sellingUnitPrice;
-    document.getElementById('rSalesTotal').value = r.salesTotal;
-    document.getElementById('rRealizedProfit').value = r.realizedProfit;
-    document.getElementById('rNote').value = r.note || '';
-    document.getElementById('modalOverlay').classList.add('active');
+    const r=records.find(r=>r.id===id);if(!r){alert('记录未找到');return}
+    document.getElementById('editId').value=r.id;document.getElementById('modalTitle').textContent='✏️ 编辑产品记录';
+    document.getElementById('rDate').value=r.date;document.getElementById('rProductName').value=r.productName;
+    document.getElementById('rPurchaseQty').value=r.purchaseQty;document.getElementById('rPurchaseUnitPrice').value=r.purchaseUnitPrice;
+    document.getElementById('rPurchaseTotal').value=r.purchaseTotal;document.getElementById('rExtraCost').value=r.extraCost;
+    document.getElementById('rUnitCost').value=r.unitCost;document.getElementById('rSalesQty').value=r.salesQty;
+    document.getElementById('rUnsoldQty').value=r.unsoldQty;document.getElementById('rSellingUnitPrice').value=r.sellingUnitPrice;
+    document.getElementById('rSalesTotal').value=r.salesTotal;document.getElementById('rRealizedProfit').value=r.realizedProfit;
+    document.getElementById('rNote').value=r.note||'';document.getElementById('modalOverlay').classList.add('active')
 }
-function closeModal(){ document.getElementById('modalOverlay').classList.remove('active'); }
-document.getElementById('modalOverlay').addEventListener('click', function(e){ if(e.target===this) closeModal(); });
+function closeModal(){document.getElementById('modalOverlay').classList.remove('active')}
+document.getElementById('modalOverlay').addEventListener('click',function(e){if(e.target===this)closeModal()});
 
-/* ===== 保存记录 ===== */
 function saveRecord(){
-    const id = document.getElementById('editId').value;
-    const date = document.getElementById('rDate').value;
-    const productName = document.getElementById('rProductName').value.trim();
-    const purchaseQty = parseInt(document.getElementById('rPurchaseQty').value) || 0;
-    const purchaseUnitPrice = parseFloat(document.getElementById('rPurchaseUnitPrice').value) || 0;
-    const purchaseTotal = parseFloat(document.getElementById('rPurchaseTotal').value) || 0;
-    const extraCost = parseFloat(document.getElementById('rExtraCost').value) || 0;
-    const unitCost = parseFloat(document.getElementById('rUnitCost').value) || 0;
-    const salesQty = parseInt(document.getElementById('rSalesQty').value) || 0;
-    const unsoldQty = parseInt(document.getElementById('rUnsoldQty').value) || 0;
-    const sellingUnitPrice = parseFloat(document.getElementById('rSellingUnitPrice').value) || 0;
-    const salesTotal = parseFloat(document.getElementById('rSalesTotal').value) || 0;
-    const realizedProfit = parseFloat(document.getElementById('rRealizedProfit').value) || 0;
-    const note = document.getElementById('rNote').value.trim();
-
-    if(!date){ alert('请选择日期'); return; }
-    if(!productName){ alert('请输入产品名称'); return; }
-    if(purchaseQty <= 0){ alert('采购数量必须大于0'); return; }
-
-    const rec = {
-        id: id || ('U'+Date.now().toString(36).toUpperCase()),
-        date, productName, purchaseQty, purchaseUnitPrice, purchaseTotal, extraCost, unitCost,
-        salesQty, unsoldQty, sellingUnitPrice, salesTotal, realizedProfit, note,
-        createdAt: id ? (records.find(r=>r.id===id)?.createdAt || new Date().toISOString()) : new Date().toISOString()
-    };
-
-    if(id){
-        const idx = records.findIndex(r=>r.id===id);
-        if(idx >= 0) records[idx] = rec;
-        if(apiAvailable){ try{ await apiCall('PUT', rec, id); }catch(e){} }
-    } else {
-        records.push(rec);
-        if(apiAvailable){ try{ const r = await apiCall('POST', rec); rec.id = r.id; }catch(e){} }
-    }
-    records.sort((a,b)=>b.date.localeCompare(a.date)||b.id.localeCompare(a.id));
-    await saveRecords();
-    closeModal();
-    refreshAll();
+    const id=document.getElementById('editId').value,date=document.getElementById('rDate').value;
+    const pn=document.getElementById('rProductName').value.trim();
+    const pq=parseInt(document.getElementById('rPurchaseQty').value)||0;
+    const pup=parseFloat(document.getElementById('rPurchaseUnitPrice').value)||0;
+    const pt=parseFloat(document.getElementById('rPurchaseTotal').value)||0;
+    const ec=parseFloat(document.getElementById('rExtraCost').value)||0;
+    const uc=parseFloat(document.getElementById('rUnitCost').value)||0;
+    const sq=parseInt(document.getElementById('rSalesQty').value)||0;
+    const uq=parseInt(document.getElementById('rUnsoldQty').value)||0;
+    const sup=parseFloat(document.getElementById('rSellingUnitPrice').value)||0;
+    const st=parseFloat(document.getElementById('rSalesTotal').value)||0;
+    const rp=parseFloat(document.getElementById('rRealizedProfit').value)||0;
+    const note=document.getElementById('rNote').value.trim();
+    if(!date){alert('请选择日期');return}if(!pn){alert('请输入产品名称');return}if(pq<=0){alert('采购数量必须大于0');return}
+    const rec={id:id||('U'+Date.now().toString(36).toUpperCase()),date,productName:pn,purchaseQty:pq,purchaseUnitPrice:pup,purchaseTotal:pt,extraCost:ec,unitCost:uc,salesQty:sq,unsoldQty:uq,sellingUnitPrice:sup,salesTotal:st,realizedProfit:rp,note,createdAt:id?(records.find(r=>r.id===id)?.createdAt||new Date().toISOString()):new Date().toISOString()};
+    if(id){const idx=records.findIndex(r=>r.id===id);if(idx>=0)records[idx]=rec}else{records.push(rec)}
+    records.sort((a,b)=>b.date.localeCompare(a.date)||b.id.localeCompare(a.id));saveRecords();closeModal();refreshAll()
 }
-
 function confirmDelete(id){
-    deleteTargetId = id;
-    const r = records.find(r=>r.id===id);
-    if(r) document.getElementById('confirmMsg').textContent = `确定要删除「${r.productName}」的记录吗？此操作不可撤销。`;
+    deleteTargetId=id;const r=records.find(r=>r.id===id);
+    if(r)document.getElementById('confirmMsg').textContent=`确定要删除「${r.productName}」的记录吗？`;
     document.getElementById('confirmOverlay').classList.add('active');
-    document.getElementById('confirmDeleteBtn').onclick = async ()=>{
-        const delId = deleteTargetId;
-        records = records.filter(r=>r.id!==delId);
-        if(apiAvailable){ try{ await apiCall('DELETE', null, delId); }catch(e){} }
-        await saveRecords();
-        closeConfirm();
-        refreshAll();
-    };
+    document.getElementById('confirmDeleteBtn').onclick=()=>{records=records.filter(r=>r.id!==deleteTargetId);saveRecords();closeConfirm();refreshAll()}
 }
-function closeConfirm(){ document.getElementById('confirmOverlay').classList.remove('active'); deleteTargetId=null; }
-document.getElementById('confirmOverlay').addEventListener('click', function(e){ if(e.target===this) closeConfirm(); });
+function closeConfirm(){document.getElementById('confirmOverlay').classList.remove('active');deleteTargetId=null}
+document.getElementById('confirmOverlay').addEventListener('click',function(e){if(e.target===this)closeConfirm()});
 
-/* ===== 筛选 ===== */
 function getFilteredRecords(){
-    const month = document.getElementById('filterMonth')?.value||'all';
-    const status = document.getElementById('filterStatus')?.value||'all';
-    const search = (document.getElementById('filterSearch')?.value||'').trim().toLowerCase();
+    const m=document.getElementById('filterMonth')?.value||'all',s=document.getElementById('filterStatus')?.value||'all';
+    const q=(document.getElementById('filterSearch')?.value||'').trim().toLowerCase();
     return records.filter(r=>{
-        if(month!=='all' && !r.date.startsWith(month)) return false;
-        if(status==='sold' && r.unsoldQty > 0) return false;
-        if(status==='partial' && (r.salesQty===0 || r.unsoldQty===0)) return false;
-        if(status==='unsold' && r.salesQty > 0) return false;
-        if(search && !r.productName.toLowerCase().includes(search)) return false;
-        return true;
-    });
+        if(m!=='all'&&!r.date.startsWith(m))return false;
+        if(s==='sold'&&r.unsoldQty>0)return false;
+        if(s==='partial'&&(r.salesQty===0||r.unsoldQty===0))return false;
+        if(s==='unsold'&&r.salesQty>0)return false;
+        if(q&&!r.productName.toLowerCase().includes(q))return false;
+        return true
+    })
 }
 function getMonthFilteredRecords(){
-    const month = document.getElementById('dashMonthFilter')?.value||'all';
-    if(month==='all') return records;
-    return records.filter(r=>r.date.startsWith(month));
+    const m=document.getElementById('dashMonthFilter')?.value||'all';
+    return m==='all'?records:records.filter(r=>r.date.startsWith(m))
 }
-function resetFilters(){
-    document.getElementById('filterMonth').value='all';
-    document.getElementById('filterStatus').value='all';
-    document.getElementById('filterSearch').value='';
-    renderRecordsTable();
-}
-['filterMonth','filterStatus'].forEach(id=>{ const el=document.getElementById(id); if(el) el.addEventListener('change', renderRecordsTable); });
-document.getElementById('filterSearch')?.addEventListener('input', function(){ renderRecordsTable(); });
+function resetFilters(){document.getElementById('filterMonth').value='all';document.getElementById('filterStatus').value='all';document.getElementById('filterSearch').value='';renderRecordsTable()}
+['filterMonth','filterStatus'].forEach(id=>{const el=document.getElementById(id);if(el)el.addEventListener('change',renderRecordsTable)});
+document.getElementById('filterSearch')?.addEventListener('input',()=>renderRecordsTable());
 
-/* ===== 月度筛选器 ===== */
 function buildMonthFilters(){
-    const months = [...new Set(records.map(r=>r.date.substring(0,7)))].sort();
-    const opts = '<option value="all">全部月份</option>'+months.map(m=>{ const [y,mo]=m.split('-'); return `<option value="${m}">${y}年${parseInt(mo)}月</option>`; }).join('');
-    ['dashMonthFilter','filterMonth'].forEach(id=>{
-        const sel = document.getElementById(id);
-        if(!sel) return;
-        const prev = sel.value;
-        sel.innerHTML = opts;
-        sel.value = months.includes(prev)?prev:'all';
-        if(!months.includes(sel.value)) sel.value='all';
-    });
+    const months=[...new Set(records.map(r=>r.date.substring(0,7)))].sort();
+    const o='<option value="all">全部月份</option>'+months.map(m=>{const[,mo]=m.split('-');return`<option value="${m}">${parseInt(mo)}月</option>`}).join('');
+    ['dashMonthFilter','filterMonth'].forEach(id=>{const sel=document.getElementById(id);if(!sel)return;const p=sel.value;sel.innerHTML=o;sel.value=months.includes(p)?p:'all'})
 }
-document.getElementById('dashMonthFilter').addEventListener('change', ()=>{ buildDashboard(); });
+document.getElementById('dashMonthFilter').addEventListener('change',()=>buildDashboard());
 
-/* ===== 渲染表格 ===== */
 function renderRecordsTable(){
-    const filtered = getFilteredRecords();
-    const tbody = document.getElementById('recordsTbody');
-    document.getElementById('recordCount').textContent = `共 ${filtered.length} 条`;
-    if(!filtered.length){
-        tbody.innerHTML = `<tr><td class="empty-state" colspan="13"><div class="empty-icon">📭</div><p>没有匹配的记录</p></td></tr>`;
-    } else {
-        tbody.innerHTML = filtered.map(r=>{
-            const statusTag = r.unsoldQty===0?'<span class="tag tag-sold">已售罄</span>':
-                              r.salesQty>0?'<span class="tag tag-partial">部分售出</span>':
-                              '<span class="tag tag-unsold">未售出</span>';
-            const profitClass = r.realizedProfit>=0?'profit-pos':'profit-neg';
-            return `<tr>
-                <td>${r.date}</td><td><strong>${escHtml(r.productName)}</strong></td>
-                <td class="num">${r.purchaseQty}</td><td class="num">¥${r.purchaseUnitPrice.toFixed(2)}</td>
-                <td class="num">¥${r.purchaseTotal.toFixed(2)}</td><td class="num">¥${r.extraCost.toFixed(2)}</td>
-                <td class="num">¥${r.unitCost.toFixed(2)}</td><td class="num">${r.salesQty}</td>
-                <td class="num">${r.unsoldQty}</td><td class="num">¥${r.sellingUnitPrice.toFixed(2)}</td>
-                <td class="num">¥${r.salesTotal.toFixed(2)}</td>
-                <td class="num ${profitClass}">${r.realizedProfit>=0?'+':''}¥${r.realizedProfit.toFixed(2)}</td>
-                <td>${statusTag} <button class="btn btn-outline btn-xs" onclick="openEditModal('${r.id}')" title="编辑">✏️</button> <button class="btn btn-danger btn-xs" onclick="confirmDelete('${r.id}')" title="删除">🗑️</button></td>
-            </tr>`;
-        }).join('');
-    }
-    renderRecentRecords();
+    const f=getFilteredRecords(),tb=document.getElementById('recordsTbody');
+    document.getElementById('recordCount').textContent=`共 ${f.length} 条`;
+    if(!f.length){tb.innerHTML='<tr><td class="empty-state" colspan="13"><div class="empty-icon">📭</div><p>没有匹配的记录</p></td></tr>';return}
+    tb.innerHTML=f.map(r=>{
+        const tg=r.unsoldQty===0?'tag-sold':r.salesQty>0?'tag-partial':'tag-unsold';
+        const tl=r.unsoldQty===0?'已售罄':r.salesQty>0?'部分售出':'未售出';
+        const pc=r.realizedProfit>=0?'profit-pos':'profit-neg';
+        return`<tr><td>${r.date}</td><td><strong>${e(r.productName)}</strong></td>
+        <td class="num">${r.purchaseQty}</td><td class="num">¥${r.purchaseUnitPrice.toFixed(2)}</td>
+        <td class="num">¥${r.purchaseTotal.toFixed(2)}</td><td class="num">¥${r.extraCost.toFixed(2)}</td>
+        <td class="num">¥${r.unitCost.toFixed(2)}</td><td class="num">${r.salesQty}</td>
+        <td class="num">${r.unsoldQty}</td><td class="num">¥${r.sellingUnitPrice.toFixed(2)}</td>
+        <td class="num">¥${r.salesTotal.toFixed(2)}</td><td class="num ${pc}">${r.realizedProfit>=0?'+':''}¥${r.realizedProfit.toFixed(2)}</td>
+        <td><span class="tag ${tg}">${tl}</span> <button class="btn btn-outline btn-xs" onclick="openEditModal('${r.id}')">✏️</button> <button class="btn btn-danger btn-xs" onclick="confirmDelete('${r.id}')">🗑️</button></td></tr>`
+    }).join('');renderRecentRecords()
 }
-function escHtml(s){ const d=document.createElement('div');d.textContent=s;return d.innerHTML; }
-
+function e(s){const d=document.createElement('div');d.textContent=s;return d.innerHTML}
 function renderRecentRecords(){
-    const tbody = document.getElementById('recentTbody');
-    const src = getMonthFilteredRecords();
-    const recent = src.slice(0,8);
-    if(!recent.length){
-        tbody.innerHTML = `<tr><td class="empty-state" colspan="6"><div class="empty-icon">📭</div><p>暂无记录</p></td></tr>`;
-    } else {
-        tbody.innerHTML = recent.map(r=>{
-            const profitClass = r.realizedProfit>=0?'profit-pos':'profit-neg';
-            const statusTag = r.unsoldQty===0?'<span class="tag tag-sold">已售罄</span>':r.salesQty>0?'<span class="tag tag-partial">部分售出</span>':'<span class="tag tag-unsold">未售出</span>';
-            return `<tr>
-                <td>${r.date}</td><td><strong>${escHtml(r.productName)}</strong></td>
-                <td class="num">¥${(r.purchaseTotal+r.extraCost).toFixed(2)}</td>
-                <td class="num">¥${r.salesTotal.toFixed(2)}</td>
-                <td class="num ${profitClass}">${r.realizedProfit>=0?'+':''}¥${r.realizedProfit.toFixed(2)}</td>
-                <td>${statusTag}</td>
-            </tr>`;
-        }).join('');
-    }
+    const tb=document.getElementById('recentTbody'),src=getMonthFilteredRecords(),recent=src.slice(0,8);
+    if(!recent.length){tb.innerHTML='<tr><td class="empty-state" colspan="6"><div class="empty-icon">📭</div><p>暂无记录</p></td></tr>';return}
+    tb.innerHTML=recent.map(r=>{
+        const pc=r.realizedProfit>=0?'profit-pos':'profit-neg';
+        const tg=r.unsoldQty===0?'tag-sold':r.salesQty>0?'tag-partial':'tag-unsold';
+        const tl=r.unsoldQty===0?'已售罄':r.salesQty>0?'部分售出':'未售出';
+        return`<tr><td>${r.date}</td><td><strong>${e(r.productName)}</strong></td>
+        <td class="num">¥${(r.purchaseTotal+r.extraCost).toFixed(2)}</td><td class="num">¥${r.salesTotal.toFixed(2)}</td>
+        <td class="num ${pc}">${r.realizedProfit>=0?'+':''}¥${r.realizedProfit.toFixed(2)}</td><td><span class="tag ${tg}">${tl}</span></td></tr>`
+    }).join('')
 }
-
-/* ===== 看板统计 ===== */
 function updateDashboardStats(){
-    const filtered = getMonthFilteredRecords();
-    const purchaseCost = filtered.reduce((s,r)=>s+r.purchaseTotal+r.extraCost,0);
-    const salesRevenue = filtered.reduce((s,r)=>s+r.salesTotal,0);
-    const realizedProfit = filtered.reduce((s,r)=>s+r.realizedProfit,0);
-    const inventoryCost = filtered.reduce((s,r)=>s+r.unitCost*r.unsoldQty,0);
-
-    document.getElementById('d-purchase-cost').textContent = '¥'+purchaseCost.toLocaleString('zh-CN',{minimumFractionDigits:2});
-    document.getElementById('d-sales-revenue').textContent = '¥'+salesRevenue.toLocaleString('zh-CN',{minimumFractionDigits:2});
-    const profitEl = document.getElementById('d-real-profit');
-    profitEl.textContent = (realizedProfit>=0?'+':'')+'¥'+realizedProfit.toLocaleString('zh-CN',{minimumFractionDigits:2});
-    profitEl.className = 'stat-value '+(realizedProfit>=0?'positive':'negative');
-    document.getElementById('d-inventory').textContent = '¥'+inventoryCost.toLocaleString('zh-CN',{minimumFractionDigits:2});
-    document.getElementById('dashDataRange').textContent = filtered.length+' 条记录';
+    const f=getMonthFilteredRecords();
+    const pc=f.reduce((s,r)=>s+r.purchaseTotal+r.extraCost,0);
+    const sr=f.reduce((s,r)=>s+r.salesTotal,0);
+    const rp=f.reduce((s,r)=>s+r.realizedProfit,0);
+    const ic=f.reduce((s,r)=>s+r.unitCost*r.unsoldQty,0);
+    document.getElementById('d-purchase-cost').textContent='¥'+pc.toLocaleString('zh-CN',{minimumFractionDigits:2});
+    document.getElementById('d-sales-revenue').textContent='¥'+sr.toLocaleString('zh-CN',{minimumFractionDigits:2});
+    const pe=document.getElementById('d-real-profit');
+    pe.textContent=(rp>=0?'+':'')+'¥'+rp.toLocaleString('zh-CN',{minimumFractionDigits:2});
+    pe.className='stat-value '+(rp>=0?'positive':'negative');
+    document.getElementById('d-inventory').textContent='¥'+ic.toLocaleString('zh-CN',{minimumFractionDigits:2});
+    document.getElementById('dashDataRange').textContent=f.length+' 条记录'
 }
-
-/* ===== 图表 ===== */
-let monthlyChart, categoryChart;
-
-function getChartColors(){
-    if(html.getAttribute('data-theme')==='dark') return {grid:'rgba(255,255,255,.06)',text:'#94a3b8'};
-    return {grid:'rgba(0,0,0,.06)',text:'#64748b'};
-}
-
+let monthlyChart,categoryChart;
+function getCC(){return html.getAttribute('data-theme')==='dark'?{grid:'rgba(255,255,255,.06)',text:'#94a3b8'}:{grid:'rgba(0,0,0,.06)',text:'#64748b'}}
 function buildCharts(){
-    const c = getChartColors();
-    const mCtx = document.getElementById('monthlyChart')?.getContext('2d');
-    const catCtx = document.getElementById('categoryChart')?.getContext('2d');
-    if(!mCtx||!catCtx) return;
-    if(monthlyChart) monthlyChart.destroy();
-    if(categoryChart) categoryChart.destroy();
-
-    const allMonths = [...new Set(records.map(r=>r.date.substring(0,7)))].sort();
-    const dashMonth = document.getElementById('dashMonthFilter')?.value||'all';
-    const displayMonths = dashMonth==='all'?allMonths:[dashMonth];
-    const filtered = getMonthFilteredRecords();
-
-    const incomeData = displayMonths.map(m=> filtered.filter(r=>r.date.startsWith(m)).reduce((s,r)=>s+r.salesTotal,0));
-    const expenseData = displayMonths.map(m=> filtered.filter(r=>r.date.startsWith(m)).reduce((s,r)=>s+r.purchaseTotal+r.extraCost,0));
-
-    const incomeGrad = mCtx.createLinearGradient(0,0,0,280);
-    incomeGrad.addColorStop(0,'rgba(16,185,129,.2)'); incomeGrad.addColorStop(1,'rgba(16,185,129,0)');
-    const expenseGrad = mCtx.createLinearGradient(0,0,0,280);
-    expenseGrad.addColorStop(0,'rgba(239,68,68,.15)'); expenseGrad.addColorStop(1,'rgba(239,68,68,0)');
-
-    monthlyChart = new Chart(mCtx,{type:'line',data:{labels:displayMonths.map(m=>{const[,mo]=m.split('-');return parseInt(mo)+'月';}),datasets:[
-        {label:'销售收入',data:incomeData,borderColor:'#10b981',backgroundColor:incomeGrad,borderWidth:2.5,fill:true,tension:.4,pointRadius:5,pointBackgroundColor:'#10b981',pointBorderColor:'#fff',pointBorderWidth:2},
-        {label:'采购成本',data:expenseData,borderColor:'#ef4444',backgroundColor:expenseGrad,borderWidth:2.5,fill:true,tension:.4,pointRadius:5,pointBackgroundColor:'#ef4444',pointBorderColor:'#fff',pointBorderWidth:2}
-    ]},options:{
-        responsive:true,maintainAspectRatio:false,interaction:{intersect:false,mode:'index'},
-        plugins:{legend:{position:'bottom',labels:{color:c.text,usePointStyle:true,pointStyleWidth:8,padding:20,font:{size:11}}},tooltip:{callbacks:{label:ctx=>ctx.dataset.label+': ¥'+ctx.parsed.y.toLocaleString()}}},
-        scales:{x:{grid:{color:c.grid},ticks:{color:c.text,font:{size:10}}},y:{grid:{color:c.grid},ticks:{color:c.text,font:{size:10},callback:v=>'¥'+(v/1000).toFixed(0)+'k'}}}
-    }});
-
-    // 产品状态分布饼图
-    const soldCount = filtered.filter(r=>r.unsoldQty===0).length;
-    const partialCount = filtered.filter(r=>r.salesQty>0&&r.unsoldQty>0).length;
-    const unsoldCount = filtered.filter(r=>r.salesQty===0).length;
-
-    categoryChart = new Chart(catCtx,{type:'doughnut',data:{
-        labels:['已售罄','部分售出','未售出'],
-        datasets:[{data:[soldCount,partialCount,unsoldCount],backgroundColor:['#10b981','#3b82f6','#f59e0b'],borderWidth:0,borderRadius:4}]
-    },options:{
-        responsive:true,maintainAspectRatio:false,
-        plugins:{legend:{position:'bottom',labels:{color:c.text,usePointStyle:true,pointStyleWidth:8,padding:16,font:{size:10}}},tooltip:{callbacks:{label:ctx=>ctx.label+': '+ctx.parsed+' 个产品'}}}
-    }});
+    const c=getCC(),mCtx=document.getElementById('monthlyChart')?.getContext('2d'),catCtx=document.getElementById('categoryChart')?.getContext('2d');
+    if(!mCtx||!catCtx)return;if(monthlyChart)monthlyChart.destroy();if(categoryChart)categoryChart.destroy();
+    const am=[...new Set(records.map(r=>r.date.substring(0,7)))].sort();
+    const dm=document.getElementById('dashMonthFilter')?.value||'all',dms=dm==='all'?am:[dm];
+    const f=getMonthFilteredRecords();
+    const id=dms.map(m=>f.filter(r=>r.date.startsWith(m)).reduce((s,r)=>s+r.salesTotal,0));
+    const ed=dms.map(m=>f.filter(r=>r.date.startsWith(m)).reduce((s,r)=>s+r.purchaseTotal+r.extraCost,0));
+    const ig=mCtx.createLinearGradient(0,0,0,280);ig.addColorStop(0,'rgba(16,185,129,.2)');ig.addColorStop(1,'rgba(16,185,129,0)');
+    const eg=mCtx.createLinearGradient(0,0,0,280);eg.addColorStop(0,'rgba(239,68,68,.15)');eg.addColorStop(1,'rgba(239,68,68,0)');
+    monthlyChart=new Chart(mCtx,{type:'line',data:{labels:dms.map(m=>{const[,mo]=m.split('-');return parseInt(mo)+'月'}),datasets:[
+        {label:'销售收入',data:id,borderColor:'#10b981',backgroundColor:ig,borderWidth:2.5,fill:true,tension:.4,pointRadius:5,pointBackgroundColor:'#10b981',pointBorderColor:'#fff',pointBorderWidth:2},
+        {label:'采购成本',data:ed,borderColor:'#ef4444',backgroundColor:eg,borderWidth:2.5,fill:true,tension:.4,pointRadius:5,pointBackgroundColor:'#ef4444',pointBorderColor:'#fff',pointBorderWidth:2}
+    ]},options:{responsive:true,maintainAspectRatio:false,interaction:{intersect:false,mode:'index'},plugins:{legend:{position:'bottom',labels:{color:c.text,usePointStyle:true,pointStyleWidth:8,padding:20,font:{size:11}}},tooltip:{callbacks:{label:ctx=>ctx.dataset.label+': ¥'+ctx.parsed.y.toLocaleString()}}},scales:{x:{grid:{color:c.grid},ticks:{color:c.text,font:{size:10}}},y:{grid:{color:c.grid},ticks:{color:c.text,font:{size:10},callback:v=>'¥'+(v/1000).toFixed(0)+'k'}}}});
+    const sc=f.filter(r=>r.unsoldQty===0).length,pc=f.filter(r=>r.salesQty>0&&r.unsoldQty>0).length,uc=f.filter(r=>r.salesQty===0).length;
+    categoryChart=new Chart(catCtx,{type:'doughnut',data:{labels:['已售罄','部分售出','未售出'],datasets:[{data:[sc,pc,uc],backgroundColor:['#10b981','#3b82f6','#f59e0b'],borderWidth:0,borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{color:c.text,usePointStyle:true,pointStyleWidth:8,padding:16,font:{size:10}}},tooltip:{callbacks:{label:ctx=>ctx.label+': '+ctx.parsed+' 个'}}}}})
 }
+function buildDashboard(){buildMonthFilters();updateDashboardStats();renderRecentRecords();buildCharts()}
+function refreshAll(){buildDashboard();renderRecordsTable()}
 
-function buildDashboard(){
-    buildMonthFilters();
-    updateDashboardStats();
-    renderRecentRecords();
-    buildCharts();
-}
-function refreshAll(){ buildDashboard(); renderRecordsTable(); }
-
-/* ===== 导出CSV (完整字段) ===== */
-document.getElementById('exportBtn').addEventListener('click', ()=>{
-    if(!records.length){ alert('没有数据可导出'); return; }
-    const header = '日期,产品名称,采购数量,采购单价,采购总价,额外成本,采购单个成本,销售数量,剩余未售数量,售出单价,销售总价,已实现利润,备注';
-    const rows = records.map(r=>`${r.date},"${r.productName}",${r.purchaseQty},${r.purchaseUnitPrice},${r.purchaseTotal},${r.extraCost},${r.unitCost},${r.salesQty},${r.unsoldQty},${r.sellingUnitPrice},${r.salesTotal},${r.realizedProfit},"${r.note||''}"`);
-    const csv = '﻿'+header+'\n'+rows.join('\n');
-    const blob = new Blob([csv],{type:'text/csv;charset=utf-8'});
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a'); a.href=url; a.download=`经营账单_${new Date().toISOString().split('T')[0]}.csv`; a.click(); URL.revokeObjectURL(url);
+document.getElementById('exportBtn').addEventListener('click',()=>{
+    if(!records.length){alert('无数据');return}
+    const h='日期,产品名称,采购数量,采购单价,采购总价,额外成本,采购单个成本,销售数量,剩余未售,售出单价,销售总价,已实现利润,备注';
+    const rows=records.map(r=>`${r.date},"${r.productName}",${r.purchaseQty},${r.purchaseUnitPrice},${r.purchaseTotal},${r.extraCost},${r.unitCost},${r.salesQty},${r.unsoldQty},${r.sellingUnitPrice},${r.salesTotal},${r.realizedProfit},"${r.note||''}"`);
+    const csv='﻿'+h+'\n'+rows.join('\n');
+    const b=new Blob([csv],{type:'text/csv;charset=utf-8'}),url=URL.createObjectURL(b);
+    const a=document.createElement('a');a.href=url;a.download='经营账单_'+new Date().toISOString().split('T')[0]+'.csv';a.click();URL.revokeObjectURL(url)
 });
-
-/* ===== 导入CSV ===== */
 document.getElementById('importBtn').addEventListener('click',()=>document.getElementById('importFileInput').click());
 document.getElementById('importFileInput').addEventListener('change',function(){
-    const file=this.files[0]; if(!file) return;
-    const reader=new FileReader();
+    const file=this.files[0];if(!file)return;const reader=new FileReader();
     reader.onload=function(e){
         try{
-            const lines=e.target.result.split('\n').filter(l=>l.trim());
-            if(lines.length<2){ alert('CSV格式不正确'); return; }
-            let imported=0;
+            const lines=e.target.result.split('\n').filter(l=>l.trim());if(lines.length<2){alert('CSV格式不对');return}
+            let n=0;
             for(let i=1;i<lines.length;i++){
-                const row=parseCSVLine(lines[i]);
-                if(!row||row.length<12) continue;
-                const date=row[0]?.trim();
-                const productName=row[1]?.trim();
-                const pq=parseInt(row[2])||0, pup=parseFloat(row[3])||0, pt=parseFloat(row[4])||0;
-                const ec=parseFloat(row[5])||0, uc=parseFloat(row[6])||0;
-                const sq=parseInt(row[7])||0, uq=parseInt(row[8])||0;
-                const sup=parseFloat(row[9])||0, st=parseFloat(row[10])||0, rp=parseFloat(row[11])||0;
-                const note=row[12]?.trim()||'';
-                if(!date||!productName||pq<=0) continue;
-                records.push({id:'U'+Date.now().toString(36)+i,date,productName,purchaseQty:pq,purchaseUnitPrice:pup,purchaseTotal:pt,extraCost:ec,unitCost:uc,salesQty:sq,unsoldQty:uq,sellingUnitPrice:sup,salesTotal:st,realizedProfit:rp,note,createdAt:new Date().toISOString()});
-                imported++;
+                const row=pcsv(lines[i]);if(!row||row.length<12)continue;
+                const d=row[0]?.trim(),pn=row[1]?.trim();
+                const pq=parseInt(row[2])||0,pup=parseFloat(row[3])||0,pt=parseFloat(row[4])||0,ec=parseFloat(row[5])||0,uc=parseFloat(row[6])||0;
+                const sq=parseInt(row[7])||0,uq=parseInt(row[8])||0,sup=parseFloat(row[9])||0,st=parseFloat(row[10])||0,rp=parseFloat(row[11])||0;
+                const note=row[12]?.trim()||'';if(!d||!pn||pq<=0)continue;
+                records.push({id:'U'+Date.now().toString(36)+i,date:d,productName:pn,purchaseQty:pq,purchaseUnitPrice:pup,purchaseTotal:pt,extraCost:ec,unitCost:uc,salesQty:sq,unsoldQty:uq,sellingUnitPrice:sup,salesTotal:st,realizedProfit:rp,note,createdAt:new Date().toISOString()});n++
             }
-            records.sort((a,b)=>b.date.localeCompare(a.date)||b.id.localeCompare(a.id));
-            saveRecords(); refreshAll();
-            alert(`成功导入 ${imported} 条记录`);
-        }catch(err){ alert('导入失败：'+err.message); }
-    };
-    reader.readAsText(file,'UTF-8'); this.value='';
+            records.sort((a,b)=>b.date.localeCompare(a.date)||b.id.localeCompare(a.id));saveRecords();refreshAll();alert('成功导入 '+n+' 条')
+        }catch(err){alert('导入失败：'+err.message)}
+    };reader.readAsText(file,'UTF-8');this.value=''
 });
+function pcsv(l){const r=[];let c='',q=false;for(let i=0;i<l.length;i++){const ch=l[i];if(q){if(ch==='"'){if(l[i+1]==='"'){c+='"';i++}else{q=false}}else{c+=ch}}else{if(ch==='"'){q=true}else if(ch===','){r.push(c);c=''}else{c+=ch}}}r.push(c);return r}
 
-function parseCSVLine(line){
-    const result=[]; let current='',inQ=false;
-    for(let i=0;i<line.length;i++){
-        const ch=line[i];
-        if(inQ){ if(ch==='"'){ if(line[i+1]==='"'){current+='"';i++;}else{inQ=false;} }else{current+=ch;} }
-        else{ if(ch==='"'){inQ=true;}else if(ch===','){result.push(current);current='';}else{current+=ch;} }
-    }
-    result.push(current); return result;
-}
-
-/* ===== 键盘快捷键 ===== */
 document.addEventListener('keydown',e=>{
-    if(e.ctrlKey&&e.key==='d'){ e.preventDefault(); themeToggle.click(); }
-    if(e.ctrlKey&&e.key==='n'){ e.preventDefault(); openAddModal(); }
-    if(e.key==='Escape'){ closeModal(); closeConfirm(); closeSidebar(); }
+    if(e.ctrlKey&&e.key==='d'){e.preventDefault();themeToggle.click()}
+    if(e.ctrlKey&&e.key==='n'){e.preventDefault();openAddModal()}
+    if(e.key==='Escape'){closeModal();closeConfirm();closeSb()}
 });
+window.switchPage=switchPage;window.openAddModal=openAddModal;window.openEditModal=openEditModal;
+window.closeModal=closeModal;window.saveRecord=saveRecord;window.confirmDelete=confirmDelete;
+window.closeConfirm=closeConfirm;window.resetFilters=resetFilters;window.autoCalc=autoCalc;
 
-/* ===== 全局暴露 ===== */
-window.switchPage=switchPage; window.openAddModal=openAddModal;
-window.openEditModal=openEditModal; window.closeModal=closeModal;
-window.saveRecord=saveRecord; window.confirmDelete=confirmDelete;
-window.closeConfirm=closeConfirm; window.resetFilters=resetFilters;
-window.autoCalc=autoCalc;
-
-/* ===== 初始化 ===== */
-(async function init(){
-    await loadRecords();
-    records.sort((a,b)=>b.date.localeCompare(a.date)||b.id.localeCompare(a.id));
-    buildDashboard();
-    renderRecordsTable();
-
-    console.log('📒 经营账单管理系统已就绪');
-    console.log('📊 已加载 '+records.length+' 条记录 (' + (apiAvailable?'☁️云端同步':'💾本地存储') + ')');
-    console.log('💡 Ctrl+N 新增 | Ctrl+D 切换暗色 | CSV导出/导入');
-    console.log('📱 Vercel 部署: biz-bills-4gts.vercel.app');
-})();
-
+loadRecords();
+records.sort((a,b)=>b.date.localeCompare(a.date)||b.id.localeCompare(a.id));
+buildDashboard();renderRecordsTable();
+console.log('📒 经营账单管理系统 | 113条预载数据 | localStorage存储');
+console.log('💡 Ctrl+N 新增 | Ctrl+D 暗色模式 | CSV导入/导出跨设备同步');
 })();
 </script>
 </body>
